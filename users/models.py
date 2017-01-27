@@ -20,10 +20,7 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name','last_name']
     
-    class Meta:
-        verbose_name=_('user')
-        verbose_name_plural=_('users')
-        
+  
         
     def get_full_name(self):
         return ('%s %s' % (self.first_name, self.last_name)).strip()

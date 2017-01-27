@@ -1,6 +1,6 @@
 import random
 from django.contrib.auth.base_user import BaseUserManager
-from utils.notifications import Message
+#from utils.notifications import Message
 
 
 class UserManager(BaseUserManager):
