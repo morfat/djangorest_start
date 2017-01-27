@@ -9,7 +9,7 @@ class UserManager(BaseUserManager):
 
     def _create_user(self, email,password, **extra_fields):
         #do validations
-        random_password=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+        #random_password=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
         
         if not email:
             raise ValueError('The given email must be set')
