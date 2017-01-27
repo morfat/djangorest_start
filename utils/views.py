@@ -16,6 +16,11 @@ class TransactionalViewMixin(object):
     """This is a global view wrapper that provides ,
     transactions and filters
     """
+    
+    #define for custom render messages
+    error_message='Error'
+    success_message='Success'
+ 
     filter_backends = (DjangoFilterBackend,filters.SearchFilter,)
     @method_decorator(transaction.atomic)
     def dispatch(self, *args, **kwargs):
