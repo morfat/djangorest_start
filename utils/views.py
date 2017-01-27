@@ -1,5 +1,4 @@
-from django.shortcuts import render
-
+from rest_framework import generics
 # Create your views here.
 from django.db import transaction
 from django.utils.decorators import method_decorator

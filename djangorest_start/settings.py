@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_docs',
+    'corsheaders',
+
     'utils',
     'users',
 
@@ -47,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -56,10 +62,21 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'djangorest_start.urls'
 
+#django-cors-headers
+
+#CORS_ORIGIN_WHITELIST = (
+#    'localhost:4200',
+#)
+
+CORS_ORIGIN_ALLOW_ALL=True
+
+AUTH_USER_MODEL='users.User'
+AUTHENTICATION_BACKENDS=('authentication.auth.CustomBackend',)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +88,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'djangorest_start.wsgi.application'
 
