@@ -13,14 +13,17 @@ class ObtainExpiringAuthToken(TransactionalViewMixin,views.ObtainAuthToken):
     
     serializer_class = EmailAuthTokenSerializer
     permission_classes = (AllowAny,)
+    renderer_classes = (CustomJSONRenderer, )
     authentication_classes = ()
   
     def get_token(self,user):
+    
         try:
             Token.objects.get(user=user).delete()
         except: #token failed delete/or not exist
             pass
         finally:
+            
             return Token.objects.create(user=user)
 
        
