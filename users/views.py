@@ -9,9 +9,9 @@ class UserList(ListCreateView):
     #permission_classes = (AllowAny,)
     #authentication_classes = ()
     
-    filter_fields = ('first_name','last_name','id_number','email','phone_number','business','level',)
+    filter_fields = ('first_name','last_name','email',)
     
-    search_fields=('first_name','last_name','id_number','email','phone_number','level',)
+    search_fields=('first_name','last_name','email',)
     
     def perform_create(self,serializer):
         serializer.save()
